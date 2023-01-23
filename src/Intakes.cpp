@@ -5,22 +5,32 @@
 
 void Intake_Control(void *) {
   while (true) {
-    if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) &&
-        (limit_switch.get_value() < 30)) {
-      intake1.move_velocity(-600);
-      intake2.move_velocity(600);
-      Intake_Actuate.set_value(false);
+    
+    if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) && (limit_switch.get_value() < 30)) {
+      
+         intake1.move_velocity(-600);
+         
+         intake2.move_velocity(600);
+         
+         Intake_Actuate.set_value(false);
 
-    } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-      Intake_Actuate.set_value(false);
-      intake1.move_velocity(600);
-      intake2.move_velocity(-600);
+       } else if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) && (limit_switch.get_value() < 30)) {
+        
+          Intake_Actuate.set_value(false);
+      
+          intake1.move_velocity(600);
+       
+          intake2.move_velocity(-600);
 
-    } else {
-      intake1.move_velocity(0);
-      intake2.move_velocity(0);
-      Intake_Actuate.set_value(true);
-    }
+       } else {
+      
+       intake1.move_velocity(0);
+      
+       intake2.move_velocity(0);
+       
+       Intake_Actuate.set_value(true);
+    
+       }
 
     pros::delay(20);
   }
@@ -28,35 +38,39 @@ void Intake_Control(void *) {
 
 void Roller_Control(void *) {
   while (true) {
-    if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)))
-    {
+    if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))) {
+      
       roller.move_velocity(100);
-    }
-    else if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)))
-    {
-      roller.move_velocity(-100);
-    } else {
-      roller.move_velocity(0);
-     }
-    }
+    
+    } else if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_UP))) {
 
+      roller.move_velocity(-100);
+
+    } else {
+
+     roller.move_velocity(0);
+
+    }
     pros::delay(20);
   }
-
+ } 
 
 void Intake_Auto(int x) {
-  if (x > 0)
-  {
-    intake1.move_velocity(-x);
-    intake2.move_velocity(x);
-    Intake_Actuate.set_value(false);
-  }
 
-  if (x == 0)
-  {
-    intake1.move_velocity(-x);
-    intake2.move_velocity(x);
-    Intake_Actuate.set_value(true);
+  if((limit_switch.get_value() < 30)) {
+   
+   intake1.move_velocity(x);
+   
+   intake2.move_velocity(-x);
+   
+   Intake_Actuate.set_value(false);
+   
+  } else {
+    
+    intake1.move_velocity(0);
+    
+    intake2.move_velocity(0);
+  
   }
 }
 
