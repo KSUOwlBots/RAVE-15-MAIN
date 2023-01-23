@@ -100,6 +100,8 @@ void initialize() {
       Auton("Rave Skills\n\nAuton for da skills, plz hit like how I hit your mom last night.", Rave_Skills),
       Auton("Rave Left\n\nLeft Side, Strong Side (I will love you if you know the reference).", Rave_Auto_Left),
       Auton("Rave Right\n\nIDK when I'm gonna make this s***. But still gonna be batter than Ayush's auton.", Rave_Auto_Right),
+      Auton("Rave Left Full Send\n\n bust this sexy code out when shit gets funky.",Rave_Auto_Left_FullSend),
+      Auton("Rave Right Full Send\n\n funky shit but for the right side,",Rave_Auto_Right_FullSend),
       Auton("Drive PID test\n\nTest code to tune drive pid.", Pid_Drive_Test),
       Auton("Turn PID Test\n\nTest code to tune turn pid. ", turn_example),
       /*Auton("Drive and Turn\n\nSlow down during drive.",
@@ -156,9 +158,9 @@ void autonomous() {
   chassis.set_drive_brake(MOTOR_BRAKE_HOLD); // Set motors to hold.  This helps
                                              // autonomous consistency.
 
-  ez:as::auton_selector.call_selected_auton();
+  //ez:as::auton_selector.call_selected_auton();
 
- 
+  Rave_Auto_Right();
 }
 
 /**
