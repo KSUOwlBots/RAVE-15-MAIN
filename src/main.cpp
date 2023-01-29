@@ -78,7 +78,7 @@ void initialize() {
 
   // Configure your chassis controls
   chassis.toggle_modify_curve_with_controller(
-      true); // Enables modifying the controller curve with buttons on the
+      false); // Enables modifying the controller curve with buttons on the
              // joysticks
   chassis.set_active_brake(0.0); // Sets the active brake kP. We recommend 0.1.
   chassis.set_curve_default(
@@ -161,6 +161,7 @@ void autonomous() {
   //ez:as::auton_selector.call_selected_auton();
 
   Rave_Auto_Right();
+  //Rave_Skills();
 }
 
 /**
