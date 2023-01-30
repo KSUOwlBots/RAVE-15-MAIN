@@ -550,217 +550,192 @@ void Rave_Skills()
 {
   pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
 
-  chassis.set_drive_pid(-3, DRIVE_SPEED, false);
+  //Spin Roller
+  chassis.set_drive_pid(-2, 30);
   chassis.wait_drive();
 
-  // First Roller
   Roller_Auto(900);
+  pros::delay(1000);
+
+  //Go for 1 disc
+  Intake_Auto(600);
+
+  chassis.set_drive_pid(6, 30);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(135, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-18, 30);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(90, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-12, 30);
+  chassis.wait_drive();
+
+  //Spin Roller
+  Roller_Auto(900);
+  pros::delay(1000);
+
+  //Go for goal
+
+  chassis.set_drive_pid(4, 30);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(0, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(62, 75, true);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(15, 75);
+  chassis.wait_drive();
+
+  //Fire cata
+  pros::delay(250);
+  Catapult_Fire();
   pros::delay(500);
 
-  chassis.set_drive_pid(3, DRIVE_SPEED, true);
+  //Go for 3 line
+
+  chassis.set_turn_pid(0, 75);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(145, TURN_SPEED);
+  chassis.set_drive_pid(-28, 75);
   chassis.wait_drive();
 
-  // Start Intakes
-  Intake_Auto(600);
-
-  // Intake the first disc
-  chassis.set_drive_pid(-23, DRIVE_SPEED, false);
+  chassis.set_turn_pid(-90, 75);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(90, TURN_SPEED);
+  chassis.set_drive_pid(-28, 75);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-12, DRIVE_SPEED, false);
+  chassis.set_turn_pid(-135, 75);
   chassis.wait_drive();
 
-  // Second Roller
-  Roller_Auto(900);
+  chassis.set_drive_pid(-31, 50);
+  chassis.wait_drive();
+
+  //Aim at goal and fire
+
+  chassis.set_turn_pid(-45, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(6, 30);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(-50, 30);
+  chassis.wait_drive();
+
+  pros::delay(250);
+  Catapult_Fire();
+
   pros::delay(500);
 
-  chassis.set_drive_pid(4, DRIVE_SPEED, true);
+  //Go to triple stack
+
+  chassis.set_turn_pid(-45 , 30);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(0, TURN_SPEED);
+  chassis.set_drive_pid(-10, 30);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(62, DRIVE_SPEED, false);
+  chassis.set_turn_pid(-135, 75);
   chassis.wait_drive();
 
-  // Aim at goal
-  chassis.set_turn_pid(13, TURN_SPEED);
+  chassis.set_drive_pid(-48, 25);
   chassis.wait_drive();
 
-  // Stop Intakes
-  Intake_Auto(0);
+  chassis.set_drive_pid(48, 75, true);
+  chassis.wait_drive();
 
-  pros::delay(200);
+  //Ain at goal and fire
 
-  // Shoot the catapult
+  chassis.set_turn_pid(-45, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(10, 30);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(-50, 30);
+  chassis.wait_drive();
+
+  pros::delay(250);
   Catapult_Fire();
 
-  pros::delay(1000);
+  pros::delay(500);
 
-  chassis.set_turn_pid(0, TURN_SPEED);
+  //Get 3 discs along barrier
+
+  chassis.set_drive_pid(-8, 30);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-34, DRIVE_SPEED, false);
+  chassis.set_turn_pid(95, 60);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(-90, TURN_SPEED);
+  chassis.set_drive_pid(-52, 30);
   chassis.wait_drive();
 
-  // Start Intakes
-  Intake_Auto(600);
+  //Aim at goal and fire
 
-  // Collect disc 1/3
-  chassis.set_drive_pid(-26, (int) (DRIVE_SPEED*0.75), false);
+  chassis.set_turn_pid(15, 75);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(-135, TURN_SPEED);
-  chassis.wait_drive();
-
-  // Collect discs 2/3
-  chassis.set_drive_pid(-27, (int) (DRIVE_SPEED*0.75), false);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(27, DRIVE_SPEED, false);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(-90, TURN_SPEED);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(26, DRIVE_SPEED, false);
-  chassis.wait_drive();
-
-  // Turn towards goal
-  chassis.set_turn_pid(-0, TURN_SPEED);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(32, DRIVE_SPEED, false);
-  chassis.wait_drive();
-
-  // Aim at goal
-  chassis.set_turn_pid(13, TURN_SPEED);
-  chassis.wait_drive();
-
-  // Stop Intakes
-  Intake_Auto(0);
-
-  pros::delay(200);
-
-  // Shoot the catapult
+  pros::delay(250);
   Catapult_Fire();
 
-  pros::delay(1000);
+  pros::delay(500);
 
-  // Go back to get more discs
-  chassis.set_turn_pid(0, TURN_SPEED);
+  //Go for other 3 stack
+
+  chassis.set_turn_pid(-20, 75);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-33, DRIVE_SPEED, false);
+  chassis.set_drive_pid(-48, 75);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(-90, TURN_SPEED);
+  chassis.set_drive_pid(-30, 30);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-26, DRIVE_SPEED, false);
+  //Aim at other goal and fire
+
+  chassis.set_turn_pid(95, 75);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(-135, TURN_SPEED);
+  chassis.set_drive_pid(50 , 75, true);
   chassis.wait_drive();
 
-  // Start Intakes
-  Intake_Auto(600);
-
-  // Get the triple stack
-  chassis.set_drive_pid(-65, DRIVE_SPEED, false);
+  chassis.set_turn_pid(80, 30);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-38, (int) (DRIVE_SPEED*0.4), false);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(-90, TURN_SPEED);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(53, DRIVE_SPEED, false);
-  chassis.wait_drive();
-
-  // Aim at goal
-  chassis.set_turn_pid(-100, TURN_SPEED);
-  chassis.wait_drive();
-
-  // Stop Intakes
-  Intake_Auto(0);
-
-  pros::delay(200);
-
-  // Shoot the catapult
+  pros::delay(250);
   Catapult_Fire();
 
-  pros::delay(1000);
+  pros::delay(500);
 
-  for (int j = 0; j < 2; j++)
-  {
-    chassis.set_turn_pid(-90, TURN_SPEED);
-    chassis.wait_drive();
+  //Do three line on low goal
 
-    chassis.set_drive_pid(-15, DRIVE_SPEED, false);
-    chassis.wait_drive();
-
-    chassis.set_turn_pid(-180, TURN_SPEED);
-    chassis.wait_drive();
-
-    // Start Intakes
-    Intake_Auto(600);
-
-    chassis.set_drive_pid(-8, DRIVE_SPEED, false);
-    chassis.wait_drive();
-
-    for (int i = 0; i < 3; i++)
-    {
-      chassis.set_drive_pid(18, DRIVE_SPEED, false);
-      chassis.wait_drive();
-
-      chassis.set_drive_pid(-18, (int)(DRIVE_SPEED*0.3), false);
-      chassis.wait_drive();
-    }
-
-    chassis.set_turn_pid(-90, TURN_SPEED);
-    chassis.wait_drive();
-
-    chassis.set_drive_pid(15, DRIVE_SPEED, false);
-    chassis.wait_drive();
-
-    // Aim at goal
-    chassis.set_turn_pid(-105, TURN_SPEED);
-    chassis.wait_drive();
-
-    // Stop Intakes
-    Intake_Auto(0);
-
-    pros::delay(200);
-
-    // Shoot the catapult
-    Catapult_Fire();
-
-    pros::delay(1000);
-  }
-
-  chassis.set_turn_pid(-90, TURN_SPEED);
+  chassis.set_drive_pid(-5, 30);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-24, DRIVE_SPEED, false);
+  chassis.set_turn_pid(185, 50);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(30, TURN_SPEED);
+  chassis.set_drive_pid(-40, 30);
   chassis.wait_drive();
 
-  Endgame_fire_Auto(1);
+  //Aim at goal and fire
+
+  chassis.set_turn_pid(135, 75);
+  chassis.wait_drive();
+
+  pros::delay(250);
+  Catapult_Fire();
+
+  pros::delay(500); 
 }
-
 
 ///
 // Turn Example
