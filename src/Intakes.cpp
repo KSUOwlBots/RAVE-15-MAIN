@@ -16,7 +16,7 @@ void Intake_Control(void *) {
 
        } else if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) && (limit_switch.get_value() < 30)) {
         
-          Intake_Actuate.set_value(false);
+          Intake_Actuate.set_value(true);
       
           intake1.move_velocity(600);
        
@@ -28,7 +28,7 @@ void Intake_Control(void *) {
       
        intake2.move_velocity(0);
        
-       Intake_Actuate.set_value(true);
+       Intake_Actuate.set_value(false);
     
        }
 
@@ -63,7 +63,7 @@ void Intake_Auto(int x) {
    
    intake2.move_velocity(-x);
    
-   Intake_Actuate.set_value(false);
+   Intake_Actuate.set_value(true);
    
   } else {
     

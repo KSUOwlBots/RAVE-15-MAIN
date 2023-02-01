@@ -216,10 +216,10 @@ void Pid_Drive_Test() {
 void Rave_Auto_Right() {
 
  pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
-
  
-
-   /////// FIRST CATA SHOT //////////
+ 
+ 
+  /////// FIRST CATA SHOT //////////
 
    Intake_Auto(100);
 
@@ -386,12 +386,30 @@ void Rave_Auto_Right() {
 
   chassis.set_turn_pid(216, 65);
   chassis.wait_drive();
+  int jazz_hands = 0;
 
-  pros::delay(150);
+  while (jazz_hands < 9)
+  {
+    chassis.set_turn_pid(226, 30);
+    chassis.wait_drive();
+    chassis.set_turn_pid(206, 30);
+    chassis.wait_drive();
+
+    jazz_hands++;
+  }
+
+  chassis.set_turn_pid(216, 30);
+  chassis.wait_drive();
+
+  pros:pros::c::delay(150);
   Catapult_Fire();
   pros::delay(500);
 
   Catapult.remove();
+
+  pros::delay(250);
+
+  
 
   //Go for discs on barrier
 

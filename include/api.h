@@ -50,6 +50,7 @@
 #include "pros/adi.h"
 #include "pros/colors.h"
 #include "pros/distance.h"
+
 #include "pros/ext_adi.h"
 #include "pros/gps.h"
 #include "pros/imu.h"
@@ -77,4 +78,4 @@
 #include "pros/vision.hpp"
 #endif
 
-#endif  // _PROS_API_H_
+#endif  // _PROS_API_H_s

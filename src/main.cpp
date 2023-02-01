@@ -160,8 +160,8 @@ void autonomous() {
 
   //ez:as::auton_selector.call_selected_auton();
 
-  Rave_Auto_Right();
-  //Rave_Skills();
+  //Rave_Auto_Right();
+  Rave_Skills();
 }
 
 /**
