@@ -12,6 +12,5 @@ pros::Motor roller(11, MOTOR_GEARSET_36);
 //ADI Ports
 pros::ADIDigitalOut Intake_Actuate('H', true);
 pros::ADIAnalogIn limit_switch('B');
-//pros::ADIDigitalOut Holder_Angle('C');
 pros::ADIDigitalOut Endgame('C', true);
 

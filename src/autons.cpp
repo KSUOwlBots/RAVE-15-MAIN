@@ -217,8 +217,6 @@ void Rave_Auto_Right() {
 
  pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
  
- 
- 
   /////// FIRST CATA SHOT //////////
 
    Intake_Auto(100);
@@ -355,61 +353,80 @@ void Rave_Auto_Right() {
 
    pros::delay(500);
 
-  //Go for disc on low goal barrier
+  ///////
+ 
+  //// FIFTH CATA SHOT ////////
 
-  chassis.set_drive_pid(10, 50);
-  chassis.wait_drive();
+    //Go for disc on low goal barrier
 
-  chassis.set_turn_pid(280, 65);
-  chassis.wait_drive();
+     chassis.set_drive_pid(10, 50);
+     chassis.wait_drive();
 
-  Intake_Auto(600);
+     chassis.set_turn_pid(280, 65);
+     chassis.wait_drive();
 
-  chassis.set_drive_pid(-56, 75, true);
-  chassis.wait_drive();
+     Intake_Auto(600);
 
-  chassis.set_drive_pid(4, 30);
-  chassis.wait_drive();
+     chassis.set_drive_pid(-56, 75, true);
+     chassis.wait_drive();
 
-  //Go for disc on line
+     chassis.set_drive_pid(4, 30);
+     chassis.wait_drive();
 
-  chassis.set_turn_pid(33, 65);
-  chassis.wait_drive();
+    ////////
 
-  chassis.set_drive_pid(-34, 75, true);
-  chassis.wait_drive();
+    //Go for disc on line
 
-  //Aim at goal and fire
+     chassis.set_turn_pid(33, 65);
+     chassis.wait_drive();
 
-  chassis.set_drive_pid(6, 30);
-  chassis.wait_drive();
+     chassis.set_drive_pid(-34, 75, true);
+     chassis.wait_drive();
 
-  chassis.set_turn_pid(216, 65);
-  chassis.wait_drive();
-  int jazz_hands = 0;
+    //////////
 
-  while (jazz_hands < 9)
-  {
-    chassis.set_turn_pid(226, 30);
-    chassis.wait_drive();
-    chassis.set_turn_pid(206, 30);
-    chassis.wait_drive();
+    //Aim at goal and fire
 
-    jazz_hands++;
-  }
+     chassis.set_drive_pid(6, 30);
+     chassis.wait_drive();
 
-  chassis.set_turn_pid(216, 30);
-  chassis.wait_drive();
-
-  pros:pros::c::delay(150);
-  Catapult_Fire();
-  pros::delay(500);
-
-  Catapult.remove();
-
-  pros::delay(250);
-
+     chassis.set_turn_pid(216, 65);
+     chassis.wait_drive();
   
+    ////////
+   
+    ///does the funny before firing 
+   
+     int jazz_hands = 0;
+
+     while (jazz_hands < 9)
+     {
+     chassis.set_turn_pid(226, 30);
+     chassis.wait_drive();
+     
+     chassis.set_turn_pid(206, 30);
+     chassis.wait_drive();
+
+     jazz_hands++;
+     
+     }
+
+    /////// 
+  
+   chassis.set_turn_pid(216, 30);
+   chassis.wait_drive();
+
+   pros::delay(150);
+  
+   Catapult_Fire();
+  
+   pros::delay(500);
+
+   Catapult.remove();
+
+   pros::delay(250);
+
+  /////////////////////////////////// 
 
   //Go for discs on barrier
 
@@ -428,7 +445,9 @@ void Rave_Auto_Right() {
   chassis.wait_drive();
 
   pros::delay(150);
+  
   Catapult_Fire();
+  
   pros::delay(500);
   
   Catapult.remove();
@@ -543,6 +562,8 @@ void Rave_Auto_Left_FullSend() {
 
 pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
 
+Catapult.remove();
+
 Intake_Auto(10); 
 
 }
@@ -550,6 +571,8 @@ Intake_Auto(10);
 void Rave_Auto_Right_FullSend() {
 
 pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
+
+Catapult.remove();
 
 Intake_Auto(10); 
 
@@ -573,6 +596,7 @@ void Rave_Skills()
   chassis.wait_drive();
 
   Roller_Auto(900);
+  
   pros::delay(1000);
 
   //Go for 1 disc
@@ -595,10 +619,10 @@ void Rave_Skills()
 
   //Spin Roller
   Roller_Auto(900);
+  
   pros::delay(1000);
 
   //Go for goal
-
   chassis.set_drive_pid(4, 30);
   chassis.wait_drive();
 
@@ -613,11 +637,12 @@ void Rave_Skills()
 
   //Fire cata
   pros::delay(250);
+  
   Catapult_Fire();
+  
   pros::delay(500);
 
   //Go for 3 line
-
   chassis.set_turn_pid(0, 75);
   chassis.wait_drive();
 
@@ -637,7 +662,6 @@ void Rave_Skills()
   chassis.wait_drive();
 
   //Aim at goal and fire
-
   chassis.set_turn_pid(-45, 75);
   chassis.wait_drive();
 
@@ -648,12 +672,12 @@ void Rave_Skills()
   chassis.wait_drive();
 
   pros::delay(250);
+  
   Catapult_Fire();
 
   pros::delay(500);
 
   //Go to triple stack
-
   chassis.set_turn_pid(-45 , 30);
   chassis.wait_drive();
 
@@ -670,7 +694,6 @@ void Rave_Skills()
   chassis.wait_drive();
 
   //Ain at goal and fire
-
   chassis.set_turn_pid(-45, 75);
   chassis.wait_drive();
 
@@ -681,12 +704,12 @@ void Rave_Skills()
   chassis.wait_drive();
 
   pros::delay(250);
+  
   Catapult_Fire();
 
   pros::delay(500);
 
   //Get 3 discs along barrier
-
   chassis.set_drive_pid(-8, 30);
   chassis.wait_drive();
 
@@ -697,17 +720,16 @@ void Rave_Skills()
   chassis.wait_drive();
 
   //Aim at goal and fire
-
   chassis.set_turn_pid(15, 75);
   chassis.wait_drive();
 
   pros::delay(250);
+  
   Catapult_Fire();
 
   pros::delay(500);
 
   //Go for other 3 stack
-
   chassis.set_turn_pid(-20, 75);
   chassis.wait_drive();
 
@@ -718,7 +740,6 @@ void Rave_Skills()
   chassis.wait_drive();
 
   //Aim at other goal and fire
-
   chassis.set_turn_pid(95, 75);
   chassis.wait_drive();
 
@@ -729,12 +750,12 @@ void Rave_Skills()
   chassis.wait_drive();
 
   pros::delay(250);
+  
   Catapult_Fire();
 
   pros::delay(500);
 
   //Do three line on low goal
-
   chassis.set_drive_pid(-5, 30);
   chassis.wait_drive();
 
@@ -745,14 +766,15 @@ void Rave_Skills()
   chassis.wait_drive();
 
   //Aim at goal and fire
-
   chassis.set_turn_pid(135, 75);
   chassis.wait_drive();
 
   pros::delay(250);
+  
   Catapult_Fire();
 
   pros::delay(500); 
+
 }
 
 ///
