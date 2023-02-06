@@ -116,6 +116,9 @@ void initialize() {
   // Initialize chassis and auton selector
   chassis.initialize();
   ez::as::initialize();
+
+  
+  pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
 }
 
 /**
@@ -161,7 +164,7 @@ void autonomous() {
   //ez:as::auton_selector.call_selected_auton();
 
   Rave_Auto_Right();
-  //Rave_Skills();
+  // Rave_Skills();
 }
 
 /**
@@ -184,13 +187,19 @@ void opcontrol() {
 
   pros::Task Intakes(Intake_Control);
   pros::Task Roller(Roller_Control);
-  pros::Task Catapult(Catapult_Control);
+  // pros::Task Catapult(Catapult_Control);
+
   pros::Task Endgame(Endgame_Fire); 
   
 
   while (true) {
 
     chassis.tank();
+
+    if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
+      Catapult_Fire();
+    }
+
     //chassis.arcade_flipped(ez::SINGLE);
     pros::delay(ez::util::DELAY_TIME);
 

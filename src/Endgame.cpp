@@ -36,7 +36,7 @@ void Endgame_Fire(void *)
      if(ez::as::auton_selector.current_auton_page == 3) {
      
       driveTime = matchTime;
-     
+      
      }
 
      deployTime = driveTime*1000 - 10000;
@@ -81,7 +81,6 @@ void Endgame_Fire(void *)
      pros::delay(20);
     
     }
-
 
     /*if (master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) && master.get_digital(pros::E_CONTROLLER_DIGITAL_A))
     {

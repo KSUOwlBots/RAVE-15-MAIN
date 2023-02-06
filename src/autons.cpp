@@ -215,7 +215,7 @@ void Pid_Drive_Test() {
 
 void Rave_Auto_Right() {
 
- pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
+ //pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
  
   /////// FIRST CATA SHOT //////////
 
@@ -298,8 +298,8 @@ void Rave_Auto_Right() {
 
  /// FOURTH CATA SHOT//////////
 
-   chassis.set_drive_pid(-5, 30);
-   chassis.wait_drive();
+   //chassis.set_drive_pid(-5, 30);
+   //chassis.wait_drive();
 
    chassis.set_swing_pid(ez::LEFT_SWING, -178, 55);
    chassis.wait_drive();
@@ -326,7 +326,7 @@ void Rave_Auto_Right() {
 
   //// ROLLER ///////
 
-    Intake_Auto(0);
+    Intake_Auto(600);
 
    chassis.set_drive_pid(-6, 50);
    chassis.wait_drive();
@@ -349,7 +349,9 @@ void Rave_Auto_Right() {
    chassis.set_drive_pid(-20, 30);
    chassis.wait_drive();
 
-   Roller_Auto(-450);
+   Intake_Auto(0);
+
+   Roller_Auto(450);
 
    pros::delay(500);
 
@@ -408,6 +410,8 @@ void Rave_Auto_Right() {
      chassis.wait_drive();
 
      jazz_hands++;
+
+    //  Catapult.remove();
      
      }
 
@@ -422,7 +426,7 @@ void Rave_Auto_Right() {
   
    pros::delay(500);
 
-   Catapult.remove();
+  //  Catapult.remove();
 
    pros::delay(250);
 
@@ -459,7 +463,7 @@ void Rave_Auto_Right() {
 
 void Rave_Auto_Left() {
 
-  pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
+  //pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
 
   Intake_Auto(10);
 
@@ -560,9 +564,9 @@ void Rave_Auto_Left() {
 
 void Rave_Auto_Left_FullSend() {
 
-pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
+//pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
 
-Catapult.remove();
+// Catapult.remove();
 
 Intake_Auto(10); 
 
@@ -570,9 +574,9 @@ Intake_Auto(10);
 
 void Rave_Auto_Right_FullSend() {
 
-pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
+//pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
 
-Catapult.remove();
+// Catapult.remove();
 
 Intake_Auto(10); 
 
@@ -589,7 +593,6 @@ Intake_Auto(10);
 
 void Rave_Skills()
 {
-  pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
 
   //Spin Roller
   chassis.set_drive_pid(-2, 30);
@@ -774,6 +777,24 @@ void Rave_Skills()
   Catapult_Fire();
 
   pros::delay(500); 
+  Intake_Auto(0);
+  
+  //Go to Endgame Fire Pos
+
+  chassis.set_drive_pid(-36, 75);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(45, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-70, 75, true);
+  chassis.wait_drive();
+
+  pros::delay(1000);
+
+  Endgame_fire_Auto(1);
+
+
 
 }
 

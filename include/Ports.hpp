@@ -9,6 +9,6 @@ extern pros::Motor roller;
 
 //ADI Ports
 extern pros::ADIDigitalOut Intake_Actuate;
-extern pros::ADIAnalogIn limit_switch;
+extern pros::ADIDigitalIn limit_switch;
 extern pros::ADIDigitalOut Holder_Angle;
 extern pros::ADIDigitalOut Endgame;

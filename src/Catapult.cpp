@@ -9,7 +9,7 @@ void Catapult_Control(void *) {
   while (true) {
     Catapult.move_velocity(100);
 
-    if (limit_switch.get_value() < 30) {
+    if (limit_switch.get_value() == 1) {
       Catapult.move_velocity(0);
     }
 
@@ -25,8 +25,9 @@ void Catapult_Control(void *) {
     pros::delay(20);
   }
 }
+ 
 
-void Catapult_Down(void) {
+void Catapult_Down(void *) {
   while (true) {
 
     if (firing)
@@ -39,7 +40,7 @@ void Catapult_Down(void) {
     else {
       Catapult.move_velocity((-0.0135135135*Catapult.get_position() + 100));
 
-      if (limit_switch.get_value() < 30)
+      if (limit_switch.get_value() == 1)
       {
         Catapult.move_velocity(0);
       }
