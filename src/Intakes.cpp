@@ -2,11 +2,12 @@
 #include "api.h"
 #include "main.h"
 #include "pros/misc.h"
+#include "SETTINGS.hpp"
 
 void Intake_Control(void *) {
   while (true) {
     
-    if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) && (limit_switch.get_value() < 30)) {
+    if ((master.get_digital(_OuttakeButton)) && (limit_switch.get_value() < 30)) {
       
          intake1.move_velocity(-600);
          
@@ -14,7 +15,7 @@ void Intake_Control(void *) {
          
          Intake_Actuate.set_value(false);
 
-       } else if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) && (limit_switch.get_value() < 30)) {
+       } else if ((master.get_digital(_IntakeButton)) && (limit_switch.get_value() < 30)) {
         
           Intake_Actuate.set_value(true);
       
@@ -38,15 +39,11 @@ void Intake_Control(void *) {
 
 void Roller_Control(void *) {
   while (true) {
-    if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))) {
+    if ((master.get_digital(_RollerButton))) {
       
       roller.move_velocity(100);
     
-    } else if ((master.get_digital(pros::E_CONTROLLER_DIGITAL_UP))) {
-
-      roller.move_velocity(-100);
-
-    } else {
+    }else {
 
      roller.move_velocity(0);
 

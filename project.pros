@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Rave_v2",
+    "project_name": "Rave",
     "target": "v5",
     "templates": {
       "EZ-Template": {

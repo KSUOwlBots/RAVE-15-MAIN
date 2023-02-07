@@ -45,42 +45,28 @@ void Endgame_Fire(void *)
 
   while (true)
   {
-
-   //fail safe code 
-   if((pros::millis() - startTime >= deployTime) || (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT) && master.get_digital(pros::E_CONTROLLER_DIGITAL_Y))) {
-
+    //fail safe code 
+    if((pros::millis() - startTime >= deployTime) || (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT) && master.get_digital(pros::E_CONTROLLER_DIGITAL_Y))) {
     pros::Controller master(pros::E_CONTROLLER_MASTER);
-
-   master.set_text( 0, 0, "Endgame go burrrrrrrr");
-
+    master.set_text(0, 0, "Endgame go burrrrrrrr");
     failSafe = true;
+  }
 
-   }
-
-   //activates endgame use from timer or failsafe
-   if (failSafe == true) {
-
-     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) && master.get_digital(pros::E_CONTROLLER_DIGITAL_A))
-    
-      {
-      
-       Endgame.set_value(true);
-
-       pros::Controller master(pros::E_CONTROLLER_MASTER);
-
-       master.set_text(1, 0, "Endgame fire");
-    
-      } else 
-      
-      {
-    
-       Endgame.set_value(false);
-    
-      }
-
-     pros::delay(20);
-    
+  //activates endgame use from timer or failsafe
+  if (failSafe == true)
+  {
+    // SETTINGS.hpp > Controls > Endgame fire combo
+    if (master.get_digital(_EndgameFireCombo1) && master.get_digital(_EndgameFireCombo2))
+    {
+      Endgame.set_value(true);
+      pros::Controller master(pros::E_CONTROLLER_MASTER);
+      master.set_text(1, 0, "Endgame fire");
     }
+
+    else  {  Endgame.set_value(false);  }
+
+    pros::delay(20);
+  }
 
     /*if (master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) && master.get_digital(pros::E_CONTROLLER_DIGITAL_A))
     {

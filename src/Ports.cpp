@@ -1,16 +1,16 @@
 #include "main.h"
+#include "SETTINGS.hpp"
 #include "pros/adi.hpp"
 #include "pros/motors.h"
 
 //Extra Motor Ports
-
-pros::Motor Catapult(9, MOTOR_GEARSET_36);
-pros::Motor intake1(12, MOTOR_GEARSET_6);
-pros::Motor intake2(2 , MOTOR_GEARSET_6);
-pros::Motor roller(11, MOTOR_GEARSET_36);
+pros::Motor Catapult(_CatapultPort, _CatapultGearset);
+pros::Motor intake1(_Intake1Port, _Intake1Gearset);
+pros::Motor intake2(_Intake2Port , _Intake2Gearset);
+pros::Motor roller(_RollerPort, _RollerGearset);
 
 //ADI Ports
-pros::ADIDigitalOut Intake_Actuate('H', true);
-pros::ADIDigitalIn limit_switch('B');
-pros::ADIDigitalOut Endgame('G', false);
+pros::ADIDigitalOut Intake_Actuate(_IntakeActuatorPort, _IntakeInitial);
+pros::ADIDigitalIn limit_switch(_CatapultLimitSwitchPort);
+pros::ADIDigitalOut Endgame(_EndgamePort, _EndgameInitial);
 

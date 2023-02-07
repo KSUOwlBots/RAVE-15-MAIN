@@ -1,4 +1,5 @@
 #include "main.h"
+#include "SETTINGS.hpp"
 #include "EZ-Template/util.hpp"
 #include "Intakes.hpp"
 #include "autons.hpp"
@@ -8,6 +9,7 @@
 #include "pros/motors.hpp"
 #include "pros/rtos.h"
 #include "pros/rtos.hpp"
+
 
 /////
 // For instalattion, upgrading, documentations and tutorials, check out website!
@@ -161,10 +163,9 @@ void autonomous() {
   chassis.set_drive_brake(MOTOR_BRAKE_HOLD); // Set motors to hold.  This helps
                                              // autonomous consistency.
 
-  //ez:as::auton_selector.call_selected_auton();
 
-  Rave_Auto_Right();
-  // Rave_Skills();
+  // SETTINGS.hpp > Auton > _AutonFunction
+  _AutonFunction;
 }
 
 /**
@@ -192,16 +193,17 @@ void opcontrol() {
   pros::Task Endgame(Endgame_Fire); 
   
 
-  while (true) {
+  while (true)
+  {
 
-    chassis.tank();
+    // SETTINGS.hpp > Controls > _DriveType
+    _DriveType;
 
-    if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
+    // SETTINGS.hpp > Controls > _CatapultFire
+    if (master.get_digital_new_press(_CatapultFire)) {
       Catapult_Fire();
     }
 
-    //chassis.arcade_flipped(ez::SINGLE);
     pros::delay(ez::util::DELAY_TIME);
-
   }
 }
