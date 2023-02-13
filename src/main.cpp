@@ -165,7 +165,9 @@ void autonomous() {
 
 
   // SETTINGS.hpp > Auton > _AutonFunction
-  _AutonFunction;
+  //_AutonFunction;
+
+  Rave_Auto_Right();
 }
 
 /**
