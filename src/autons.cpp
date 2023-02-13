@@ -251,6 +251,8 @@ void Rave_Auto_Right()
   Catapult_Fire();
   pros::delay(750);
   Intake_Auto(0);
+
+  CatapultReload.remove();
 }
 
 void Rave_Auto_Left() {
