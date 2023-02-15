@@ -110,10 +110,10 @@ void Pid_Drive_Test() {
  // RAVE AUTOS //
 /////////////////////////////
 
-  /*
+  /*   ____        ____                   _                  _
   **  | |\ \      / /| |                 | |                | |
-  **  | | \ \    / / | |             ____| |____            | |  
-  **  | |  \ \  / /  | |            |____   ____|           | |  _____
+  **  | | \ \    / / | |       __    ____| |____            | |  
+  **  | |  \ \  / /  | |      /  \  |____   ____|  _____    | |  _____
   **  | |   \ \/ /   | |     /    \      | |      /  ___|   | | / ___ \
   **  | |    \__/    | |    /  ^   \     | |     /  /       | |/ /   \ \
   **  | |            | |   / /__\ ^ \    | |     \  \___    |   /    | |
@@ -129,7 +129,7 @@ void Rave_Auto_Right()
   pros::delay(250);
 
   //Go for 3 discs on Barrier
-  chassis.set_drive_pid(-28, 35);
+  chassis.set_drive_pid(-28, 30);
   chassis.wait_drive();
 
   //Swing to firing angle
@@ -150,7 +150,7 @@ void Rave_Auto_Right()
 
   //Reverse Intake for failsafe and Fire Cata
   Intake_Auto(-600);
-  pros::delay(250);
+  pros::delay(500);
   Catapult_Fire();
   pros::delay(750);
 
@@ -169,7 +169,7 @@ void Rave_Auto_Right()
 
   //Go for shooting pos
 
-  chassis.set_drive_pid(12, 75, true);
+  chassis.set_drive_pid(12, 50);
   chassis.wait_drive();
 
   chassis.set_turn_pid(125, 75);
@@ -180,7 +180,7 @@ void Rave_Auto_Right()
 
   //Reverse Intake for failsafe and FIre Cata
   Intake_Auto(-600);
-  pros::delay(250);
+  pros::delay(500);
   Catapult_Fire();
   pros::delay(750);
 
@@ -254,132 +254,9 @@ void Rave_Auto_Right()
 
   CatapultReload.remove();
 }
-
-void Rave_Auto_Left() {
-
-  //pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
-
-  Intake_Auto(10);
-
-  chassis.set_drive_pid(-48, DRIVE_SPEED, true);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(135, 60);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(36000, TURN_SPEED);
-
-  chassis.set_drive_pid(3, 20, false);
-  chassis.wait_drive();
-
-  pros::delay(250);
-
-  Catapult_Fire();
-
-  pros::delay(1500);
-
-  Intake_Auto(-600);
-
-  pros::delay(50);
-
-  Intake_Auto(600);
-
-  chassis.set_turn_pid(145, 60);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-20, 20, false);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(20, 20, false);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(135, TURN_SPEED);
-  chassis.wait_drive();
-
-  pros::delay(250);
-
-  Catapult_Fire();
-
-  pros::delay(1500);
-
-  chassis.set_drive_pid(-12, 40, false);
-  chassis.wait_drive();
-
-  chassis.set_swing_pid(ez::RIGHT_SWING, 175, 40);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-30, 50, false);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(30, 75, false);
-  chassis.wait_drive();
-
-  chassis.set_swing_pid(ez::RIGHT_SWING, 135, 40);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(12, 40, false);
-  chassis.wait_drive();
-
-  pros::delay(250);
-
-  Catapult_Fire();
-
-  pros::delay(1500);
-
-  chassis.set_drive_pid(-6, 40, false);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(225, TURN_SPEED);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-40, DRIVE_SPEED, false);
-  chassis.wait_drive();
-
-  pros::delay(250);
-
-  chassis.set_drive_pid(-12, 40, false);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(52, DRIVE_SPEED, false);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(135, 60);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(6, 40, false);
-  chassis.wait_drive();
-
-  pros::delay(250);
-
-  Catapult_Fire();
-
-  pros::delay(1500);
-}
-
-void Rave_Auto_Left_FullSend() {
-
-//pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
-
-// Catapult.remove();
-
-Intake_Auto(10); 
-
-}
-
-void Rave_Auto_Right_FullSend() {
-
-//pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
-
-// Catapult.remove();
-
-Intake_Auto(10); 
-
-}
-
-
-/*
+/*      _____    _        _    _    _ 
 **     / ____|  | |      (_)  | |  | | 
-**    | (___    | | __    __  | |  | |   ____
+**    | (___    | | __    _   | |  | |   ___
 **     \___ \   | |/ /   | |  | |  | |  / __|
 **     ____) |  |   <    | |  | |  | |  \__ \
 **    |_____/   |_|\_\   |_|  |_|  |_|  |___/
@@ -388,7 +265,7 @@ Intake_Auto(10);
 void Rave_Skills()
 {
 
-  //Spin Roller
+  //Spin Roller 
   chassis.set_drive_pid(-2, 30);
   chassis.wait_drive();
 
