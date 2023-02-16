@@ -132,7 +132,8 @@ void Rave_Auto_Right()
   chassis.set_drive_pid(-28, 30);
   chassis.wait_drive();
 
-  //Swing to firing angle
+  //Swing to firing angle ooga booga
+  
 
   Intake_Auto(0);
 
