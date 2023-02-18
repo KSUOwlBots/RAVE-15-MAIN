@@ -178,11 +178,11 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/autons.cpp.o",
-            "src\\autons.cpp"
+            "bin/Intakes.cpp.o",
+            "src\\Intakes.cpp"
         ],
         "directory": "C:\\Users\\Ayush\\Desktop\\RaveCode DO NOT TOUCH\\RAVE-15-MAIN",
-        "file": "src\\autons.cpp"
+        "file": "src\\Intakes.cpp"
     },
     {
         "arguments": [
@@ -215,10 +215,10 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/Intakes.cpp.o",
-            "src\\Intakes.cpp"
+            "bin/autons.cpp.o",
+            "src\\autons.cpp"
         ],
         "directory": "C:\\Users\\Ayush\\Desktop\\RaveCode DO NOT TOUCH\\RAVE-15-MAIN",
-        "file": "src\\Intakes.cpp"
+        "file": "src\\autons.cpp"
     }
 ]

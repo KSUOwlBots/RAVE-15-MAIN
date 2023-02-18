@@ -8,10 +8,8 @@
 
 extern Drive chassis;
 
-void Rave_Auto_Left();
 void Rave_Auto_Right();
-void Rave_Auto_Left_FullSend();
-void Rave_Auto_Right_FullSend();
+void Rave_Auto_Right_Risky();
 void Rave_Skills();
 void Pid_Drive_Test();
 void turn_example();
