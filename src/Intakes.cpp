@@ -7,7 +7,7 @@
 void Intake_Control(void *) {
   while (true) {
     
-    if ((master.get_digital(_OuttakeButton)) && (limit_switch.get_value() < 30)) {
+    if ((master.get_digital(_OuttakeButton)) && (limit_switch.get_value() == 1)) {
       
          intake1.move_velocity(-600);
          
@@ -15,7 +15,7 @@ void Intake_Control(void *) {
          
          Intake_Actuate.set_value(false);
 
-       } else if ((master.get_digital(_IntakeButton)) && (limit_switch.get_value() < 30)) {
+       } else if ((master.get_digital(_IntakeButton)) && (limit_switch.get_value() == 1)) {
         
           Intake_Actuate.set_value(true);
       
@@ -41,7 +41,7 @@ void Roller_Control(void *) {
   while (true) {
     if ((master.get_digital(_RollerButton))) {
       
-      roller.move_velocity(100);
+      roller.move_velocity(-100);
     
     }else {
 
@@ -54,7 +54,7 @@ void Roller_Control(void *) {
 
 void Intake_Auto(int x) {
 
-  if((limit_switch.get_value() < 30)) {
+  if((limit_switch.get_value() == 1)) {
    
    intake1.move_velocity(x);
    

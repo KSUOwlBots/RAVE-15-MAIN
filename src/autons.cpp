@@ -523,7 +523,7 @@ void Rave_Skills()
   chassis.set_turn_pid(-90, 75);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-28, 75);
+  chassis.set_drive_pid(-28, 50);
   chassis.wait_drive();
 
   chassis.set_turn_pid(-135, 75);
@@ -536,7 +536,7 @@ void Rave_Skills()
   chassis.set_turn_pid(-45, 75);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(6, 30);
+  chassis.set_drive_pid(8, 30);
   chassis.wait_drive();
 
   chassis.set_turn_pid(-50, 30);
@@ -552,7 +552,7 @@ void Rave_Skills()
   chassis.set_turn_pid(-45 , 30);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-10, 30);
+  chassis.set_drive_pid(-8, 30);
   chassis.wait_drive();
 
   chassis.set_turn_pid(-135, 75);
@@ -568,7 +568,7 @@ void Rave_Skills()
   chassis.set_turn_pid(-45, 75);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(10, 30);
+  chassis.set_drive_pid(8, 30);
   chassis.wait_drive();
 
   chassis.set_turn_pid(-50, 30);
@@ -581,7 +581,7 @@ void Rave_Skills()
   pros::delay(500);
 
   //Get 3 discs along barrier
-  chassis.set_drive_pid(-8, 30);
+  chassis.set_drive_pid(-10, 30);
   chassis.wait_drive();
 
   chassis.set_turn_pid(95, 60);
@@ -607,14 +607,14 @@ void Rave_Skills()
   chassis.set_drive_pid(-48, 75);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-30, 30);
+  chassis.set_drive_pid(-30, 20);
   chassis.wait_drive();
 
   //Aim at other goal and fire
   chassis.set_turn_pid(95, 75);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(50 , 75, true);
+  chassis.set_drive_pid(45 , 50, true);
   chassis.wait_drive();
 
   chassis.set_turn_pid(80, 30);
@@ -624,10 +624,14 @@ void Rave_Skills()
   
   Catapult_Fire();
 
-  pros::delay(500);
+  pros::delay(750);
 
   //Do three line on low goal
+
   chassis.set_drive_pid(-5, 30);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(90, 30);
   chassis.wait_drive();
 
   chassis.set_turn_pid(185, 50);

@@ -15,7 +15,7 @@ void Catapult_Control(void *) {
 
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
       
-        Catapult.move_velocity(100);
+      Catapult.move_velocity(100);
       
       pros::delay(250);
       
