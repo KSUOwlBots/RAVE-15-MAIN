@@ -5,3 +5,4 @@ void Intake_Control(void*);
 void Roller_Control(void*);
 void Intake_Auto(int x);
 void Roller_Auto(int x);
+void Intake_Toggle();
