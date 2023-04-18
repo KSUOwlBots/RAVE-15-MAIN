@@ -5,7 +5,7 @@
 
 //Extra Motor Ports
 pros::Motor Catapult1(_CatapultPort1, _CatapultGearset1);
-pros::Motor Catapult2(_CatapultPort2, _CatapultGearset2);
+pros::Motor Catapult2(_CatapultPort2, _CatapultGearset2, true);
 pros::Motor intake1(_Intake1Port, _Intake1Gearset);
 pros::Motor intake2(_Intake2Port , _Intake2Gearset);
 pros::Motor roller(_RollerPort, _RollerGearset);

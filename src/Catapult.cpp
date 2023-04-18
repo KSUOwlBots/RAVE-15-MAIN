@@ -8,7 +8,7 @@ bool firing;
 void Catapult_Control(void *) {
   while (true) {
     Catapult1.move_velocity(100);
-    Catapult2.move_velocity(-100);
+    Catapult2.move_velocity(100);
 
     if (limit_switch.get_value() == 1) {
       Catapult1.move_velocity(0);
@@ -18,7 +18,7 @@ void Catapult_Control(void *) {
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
       
       Catapult1.move_velocity(100);
-      Catapult2.move_velocity(-100);
+      Catapult2.move_velocity(100);
       
       pros::delay(250);
       
@@ -38,7 +38,7 @@ void Catapult_Down(void *) {
     if (firing)
     {
       Catapult1.move_velocity(100);
-      Catapult2.move_velocity(-100);
+      Catapult2.move_velocity(100);
       
       pros::delay(300);
       
@@ -48,10 +48,12 @@ void Catapult_Down(void *) {
     }
     else {
       Catapult1.move_velocity((-0.0135135135*Catapult1.get_position() + 100));
+      Catapult2.move_velocity((-0.0135135135*Catapult2.get_position() + 100));
 
       if (limit_switch.get_value() == 1)
       {
         Catapult1.move_velocity(0);
+        Catapult2.move_velocity(0);
       }
     }
 
