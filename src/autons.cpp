@@ -124,332 +124,7 @@ void Rave_Auto_Right()
 {
   pros::Task CatapultReload(Catapult_Down);
 
-  //Deploy Intake
-  Intake_Auto(600);
-  pros::delay(250);
-
-  //Go for 2 discs on Barrier
-  chassis.set_drive_pid(-6, 30);
-  chassis.wait_drive();
-
-  pros::delay(250);
-
-  chassis.set_drive_pid(-12, 30);
-  chassis.wait_drive();
-
-  pros::delay(500);
-
-  //Grab 3rd disc in intake and swing to firing angle
-  Intake_Auto(100);
-
-  chassis.set_drive_pid(-14, 30);
-  chassis.wait_drive();
-
-  chassis.set_swing_pid(ez::LEFT_SWING, 143, 65);
-  chassis.wait_drive();
-
-  //Drive to firing pos
-
-  Intake_Auto(0);
-
-  chassis.set_drive_pid(14, 40);
-  chassis.wait_drive();
-
-  //Reverse Intake for failsafe and Fire Cata
-  Intake_Auto(0);
-  pros::delay(500);
-  Catapult_Fire();
-  pros::delay(1750);
-
-  //Go for 1 disc on 3 line
-
-  Intake_Auto(600);
-
-  chassis.set_drive_pid(-6, 50);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(45, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-14, 30);
-  chassis.wait_drive();
-
-  //Go for shooting pos
-
-  chassis.set_turn_pid(135, 75);
-  chassis.wait_drive();
-
-  //Reverse Intake for failsafe and FIre Cata
-  Intake_Auto(0);
-  pros::delay(500);
-  Catapult_Fire();
-  pros::delay(1750);
-
-  //Go for 2 discs on 3 line
-
-  Intake_Auto(600);
-
-  chassis.set_turn_pid(45, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-50, 40);
-  chassis.wait_drive();
-
-  pros::delay(250);
-
-  chassis.set_drive_pid(26, 60, true);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(123, 50);
-  chassis.wait_drive();
-
-  //Reverse Intake for failsafe and FIre Cata
-  Intake_Auto(0);
-  pros::delay(500);
-  Catapult_Fire();
-  pros::delay(1750);
-
-  //Go for preloads
-
-  chassis.set_drive_pid(-6, 40);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(90, 50);
-  chassis.wait_drive();
-
-  Intake_Auto(600);
-
-  chassis.set_drive_pid(-34, 30);
-  chassis.wait_drive();
-
-  //Go for roller
-
-  chassis.set_drive_pid(6, 50);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(0, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-36, 50);
-  chassis.wait_drive();
-
-  Intake_Auto(0);
   
-  chassis.set_turn_pid(90, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-12, 30);
-  chassis.wait_drive();
-
-  Roller_Auto(450);
-
-  pros::delay(250);
-
-  //Go for single disc
-
-  chassis.set_drive_pid(6, 30);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(45, 50);
-  chassis.wait_drive();
-
-  Intake_Auto(600);
-
-  chassis.set_drive_pid(50, 75, true);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(125, 50);
-  chassis.wait_drive();
-
-  //Reverse Intake for Failsafe and Fire Cata
-  Intake_Auto(-600);
-  pros::delay(250);
-  Catapult_Fire();
-  pros::delay(750);
-  Intake_Auto(0);
-
-  CatapultReload.remove();
-
-  chassis.set_turn_pid(36000, 100);
-  chassis.wait_drive();
-}
-
-void Rave_Auto_Right_Risky()
-{
-  //Do main setup stuff here
-  pros::Task CatapultReload(Catapult_Down);
-
-  //Swing to triple stack and drive up
-  chassis.set_swing_pid(ez::RIGHT_SWING, 35, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-20, 50);
-  chassis.wait_drive();
-
-  //Pick up 2 discs off triple stack
-  Intake_Auto(600);
-  pros::delay(100);
-
-  chassis.set_drive_pid(6, 50);
-  chassis.wait_drive();
-
-  pros::delay(100);
-
-  chassis.set_drive_pid(-6, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(12, 75);
-  chassis.wait_drive();
-
-  pros::delay(250);
-  Intake_Auto(20);
-
-  //Go for firing pos
-
-  chassis.set_swing_pid(ez::LEFT_SWING, 135, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(24, 50);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(25, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-16, 30);
-  chassis.wait_drive();
-
-  //Turn and fire
-
-  Intake_Auto(0);
-
-  chassis.set_turn_pid(-145, 75);
-  chassis.wait_drive();
-
-  pros::delay(250);
-  Catapult_Fire();
-  pros::delay(1750);
-
-  //Get disc from 3 line
-
-  Intake_Auto(600);
-
-  chassis.set_turn_pid(-225, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-12, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(12, 50);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(-145, 75);
-  chassis.wait_drive();
-
-  pros::delay(250);
-  Catapult_Fire();
-  pros::delay(1750);
-
-  //Get disc from 3 line and midline
-
-  chassis.set_turn_pid(-45, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-16, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(16, 75);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(45, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-8, 30);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(8, 50);
-  chassis.wait_drive();
-
-  //Turn to goal and fire
-
-  chassis.set_turn_pid(-145, 75);
-  chassis.wait_drive();
-
-  pros::delay(250);
-  Catapult_Fire();
-  pros::delay(1750);
-
-  //Get preloads
-
-  chassis.set_turn_pid(-180, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-36, 30);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(36, 75, true);
-  chassis.wait_drive();
-
-  //Turn to goal and fire
-
-  chassis.set_turn_pid(-145, 75);
-  chassis.wait_drive();
-
-  pros::delay(250);
-  Catapult_Fire();
-  pros::delay(1750);
-
-  //Go for barrier discs
-
-  chassis.set_swing_pid(RIGHT_SWING, -90, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-12, 30);
-  chassis.wait_drive();
-
-  chassis.set_swing_pid(LEFT_SWING, -45, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(6, 50);
-  chassis.wait_drive();
-
-  chassis.set_swing_pid(RIGHT_SWING, -90, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-14, 30);
-  chassis.wait_drive();
-
-  //Turn to goal and fire
-
-  chassis.set_drive_pid(6, 50);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(-145, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(18, 50);
-  chassis.wait_drive();
-
-  pros::delay(250);
-  Catapult_Fire();
-  pros::delay(500);
-
-  //Go to roller
-
-  Intake_Auto(0);
-
-  chassis.set_turn_pid(135, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-45, 75, true);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(180, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-12, 30);
-  chassis.wait_drive();
-
-  Roller_Auto(450);
 }
 /*      _____    _        _    _    _ 
 **     / ____|  | |      (_)  | |  | | 
@@ -461,210 +136,190 @@ void Rave_Auto_Right_Risky()
 
 void Rave_Skills()
 {
+  //Set up functions
+  pros::Task CatapultReload(Catapult_Down);
 
-  //Spin Roller 
+  //Turn to roller and turn
+  chassis.set_drive_pid(-10, 75);
+  chassis.wait_drive();
+
+  chassis.set_swing_pid(ez::RIGHT_SWING, 90, 75);
+  chassis.wait_drive();
+
   chassis.set_drive_pid(-2, 30);
   chassis.wait_drive();
 
-  Roller_Auto(900);
-  
-  pros::delay(1000);
+  Roller_Auto(1200);
+  pros::delay(250);
 
-  //Go for 1 disc
+  //Go for single disc
+
+  chassis.set_drive_pid(4, 50);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(-45, 75);
+  chassis.wait_drive();
+
   Intake_Auto(600);
 
-  chassis.set_drive_pid(6, 30);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(135, 75);
-  chassis.wait_drive();
-
   chassis.set_drive_pid(-18, 30);
+  chassis.wait_drive();
+
+  //Go for second roller
+
+  chassis.set_turn_pid(0, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-16, 50);
+  chassis.wait_drive();
+
+  Roller_Auto(1200);
+  pros::delay(250);
+
+  //Go to goal and fire
+
+  chassis.set_drive_pid(5, 50);
   chassis.wait_drive();
 
   chassis.set_turn_pid(90, 75);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-12, 30);
-  chassis.wait_drive();
-
-  //Spin Roller
-  Roller_Auto(900);
-  
-  pros::delay(1000);
-
-  //Go for goal
-  chassis.set_drive_pid(4, 30);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(0, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(62, 75, true);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(15, 75);
-  chassis.wait_drive();
-
-  //Fire cata
-  pros::delay(250);
-  
-  Catapult_Fire();
-  
-  pros::delay(500);
-
-  //Go for 3 line
-  chassis.set_turn_pid(0, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-28, 50);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(-90, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-28, 50);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(-135, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-31, 50);
-  chassis.wait_drive();
-
-  //Aim at goal and fire
-  chassis.set_turn_pid(-45, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(8, 30);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(-50, 30);
-  chassis.wait_drive();
-
-  pros::delay(250);
-  
-  Catapult_Fire();
-
-  pros::delay(500);
-
-  //Go to triple stack
-  chassis.set_turn_pid(-45 , 30);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-8, 30);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(-135, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-48, 25);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(48, 75, true);
-  chassis.wait_drive();
-
-  //Ain at goal and fire
-  chassis.set_turn_pid(-45, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(8, 30);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(-50, 30);
-  chassis.wait_drive();
-
-  pros::delay(250);
-  
-  Catapult_Fire();
-
-  pros::delay(500);
-
-  //Get 3 discs along barrier
-  chassis.set_drive_pid(-10, 30);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(95, 60);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-52, 30);
-  chassis.wait_drive();
-
-  //Aim at goal and fire
-  chassis.set_turn_pid(15, 75);
-  chassis.wait_drive();
-
-  pros::delay(1250);
-  
-  Catapult_Fire();
-
-  pros::delay(500);
-
-  //Go for other 3 stack
-  chassis.set_turn_pid(-20, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-48, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-30, 20);
-  chassis.wait_drive();
-
-  //Aim at other goal and fire
-  chassis.set_turn_pid(95, 75);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(45 , 50, true);
+  chassis.set_drive_pid(58, 75, true);
   chassis.wait_drive();
 
   chassis.set_turn_pid(80, 30);
   chassis.wait_drive();
 
-  pros::delay(250);
-  
+  pros::delay(150);
   Catapult_Fire();
+  pros::delay(1500);
 
-  pros::delay(750);
+  //Go for barrier discs
 
-  //Do three line on low goal
-
-  chassis.set_drive_pid(-5, 30);
+  chassis.set_turn_pid(185, 75);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(90, 30);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(185, 50);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-45, 30);
+  chassis.set_drive_pid(-46, 30);
   chassis.wait_drive();
 
   //Aim at goal and fire
+
   chassis.set_turn_pid(135, 75);
   chassis.wait_drive();
 
-  pros::delay(250);
-  
+  pros::delay(150);
   Catapult_Fire();
+  pros::delay(1500);
 
-  pros::delay(500); 
-  Intake_Auto(0);
-  
-  //Go to Endgame Fire Pos
+  //Go for other barrier discs
 
-  chassis.set_drive_pid(-24, 75);
+  chassis.set_turn_pid(275, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-42, 30);
+  chassis.wait_drive();
+
+  //Aim and fire at goal
+
+  chassis.set_turn_pid(190, 75);
+  chassis.wait_drive();
+
+  pros::delay(150);
+  Catapult_Fire();
+  pros::delay(2000);  
+
+  //Go for 2 discs on midline
+
+  chassis.set_turn_pid(135, 75);
+  chassis.wait_drive();
+
+  Intake_Auto(600);
+
+  chassis.set_drive_pid(-40, 75, true);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-12, 30);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(45,75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-32, 50);
+  chassis.wait_drive();
+
+  //Go to matchloader for single disc
+
+  chassis.set_turn_pid(180, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-50, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-20, 30);
+  chassis.wait_drive();
+
+  //Aim at goal and fire
+
+  chassis.set_drive_pid(4, 30);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(270, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(15, 50);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(260, 50);
+  chassis.wait_drive();
+
+  pros::delay(150);
+  Catapult_Fire();
+  pros::delay(1500); 
+
+  //Go for barrier discs
+
+  chassis.set_turn_pid(365, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-44, 30);
+  chassis.wait_drive();
+
+  //Aim at goal and fire
+
+  chassis.set_turn_pid(315, 75);
+  chassis.wait_drive();
+
+  pros::delay(150);
+  Catapult_Fire();
+  pros::delay(1500); 
+
+  //Go to next barrier discs
+
+  chassis.set_turn_pid(455, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-40, 30);
+  chassis.wait_drive();
+
+  //Aim at goal and fire
+
+  chassis.set_turn_pid(370, 75);
+  chassis.wait_drive();
+
+  pros::delay(150);
+  Catapult_Fire();
+  pros::delay(1500); 
+
+  //Go to endgame pos
+
+  chassis.set_turn_pid(355, 75);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-60, 90, true);
   chassis.wait_drive();
 
   chassis.set_turn_pid(45, 75);
   chassis.wait_drive();
-
-  chassis.set_drive_pid(-70, 75, true);
-  chassis.wait_drive();
-
-  pros::delay(5000);
-
-  Endgame_fire_Auto(1);
 }
 ///
 // Turn Example

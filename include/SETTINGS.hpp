@@ -22,8 +22,10 @@ using namespace pros;
 
 
 // Motors
-#define _CatapultPort 9
-#define _CatapultGearset E_MOTOR_GEARSET_36
+#define _CatapultPort1 9
+#define _CatapultGearset1 E_MOTOR_GEARSET_18
+#define _CatapultPort2 8
+#define _CatapultGearset2 E_MOTOR_GEARSET_18
 #define _Intake1Port 12
 #define _Intake1Gearset E_MOTOR_GEARSET_06
 #define _Intake2Port 2

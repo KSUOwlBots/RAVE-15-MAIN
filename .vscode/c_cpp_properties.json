@@ -8,7 +8,8 @@
         "c:\\Users\\agent\\OneDrive\\Desktop\\rave\\Ravev2_15_main\\include",
         "c:\\Users\\cidae\\OneDrive\\Documents\\GitHub\\Ravev2_15_main\\include",
         "c:\\Users\\mitch\\OneDrive\\Desktop\\VEX Spin Up Code\\Ravev2_15_main\\include",
-        "c:\\Users\\Ayush\\Desktop\\RaveCode DO NOT TOUCH\\RAVE-15-MAIN\\include"
+        "c:\\Users\\Ayush\\Desktop\\RaveCode DO NOT TOUCH\\RAVE-15-MAIN\\include",
+        "c:\\Users\\Ayush\\Desktop\\Rave_15\\RAVE-15-MAIN\\include"
       ],
       "defines": [
         "_DEBUG",
@@ -19,10 +20,10 @@
       "cStandard": "c17",
       "cppStandard": "c++17",
       "intelliSenseMode": "gcc-arm",
-      "compileCommands": "c:\\Users\\Ayush\\Desktop\\RaveCode DO NOT TOUCH\\RAVE-15-MAIN\\compile_commands.json",
+      "compileCommands": "c:\\Users\\Ayush\\Desktop\\Rave_15\\RAVE-15-MAIN\\compile_commands.json",
       "browse": {
         "path": [
-          "c:\\Users\\Ayush\\Desktop\\RaveCode DO NOT TOUCH\\RAVE-15-MAIN"
+          "c:\\Users\\Ayush\\Desktop\\Rave_15\\RAVE-15-MAIN"
         ],
         "limitSymbolsToIncludedHeaders": true,
         "databaseFilename": ""

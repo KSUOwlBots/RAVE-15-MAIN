@@ -2,7 +2,8 @@
 #include "pros/adi.hpp"
 
 //Extra Motor Ports
-extern pros::Motor Catapult;
+extern pros::Motor Catapult1;
+extern pros::Motor Catapult2;
 extern pros::Motor intake1;
 extern pros::Motor intake2;
 extern pros::Motor roller;
