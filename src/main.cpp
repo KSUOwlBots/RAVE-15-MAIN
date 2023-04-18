@@ -162,11 +162,11 @@ void autonomous() {
 
 
   // SETTINGS.hpp > Auton > _AutonFunction
-  //_AutonFunction;
+   _AutonFunction;
 
   //Rave_Auto_Right();
   //Rave_Auto_Right_Risky();
-  Rave_Skills();
+  //Rave_Skills();
 }
 
 /**

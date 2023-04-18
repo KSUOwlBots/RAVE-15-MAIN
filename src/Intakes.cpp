@@ -71,6 +71,13 @@ void Intake_Auto(int x) {
   }
 }
 
+void Intake_Toggle() {
+       
+  Intake_Actuate.set_value(false);
+
+}
+
+
 void Roller_Auto(int x) {
   roller.move_relative(x, 127);
 }
