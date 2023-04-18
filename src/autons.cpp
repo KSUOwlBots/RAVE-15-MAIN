@@ -488,7 +488,7 @@ void Rave_Skills()
   chassis.set_drive_pid(4, 50);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(-45, 75);
+  chassis.set_turn_pid(-45, 50);
   chassis.wait_drive();
 
   Intake_Auto(600);
@@ -498,10 +498,10 @@ void Rave_Skills()
 
   //Go for second roller
 
-  chassis.set_turn_pid(0, 75);
+  chassis.set_turn_pid(0, 50);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-16, 50);
+  chassis.set_drive_pid(-18, 50);
   chassis.wait_drive();
 
   Roller_Auto(1200);
@@ -512,7 +512,7 @@ void Rave_Skills()
   chassis.set_drive_pid(5, 50);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(90, 75);
+  chassis.set_turn_pid(90, 50);
   chassis.wait_drive();
 
   chassis.set_drive_pid(58, 75, true);
@@ -527,15 +527,15 @@ void Rave_Skills()
 
   //Go for barrier discs
 
-  chassis.set_turn_pid(185, 75);
+  chassis.set_turn_pid(185, 50);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-46, 30);
+  chassis.set_drive_pid(-44, 30);
   chassis.wait_drive();
 
   //Aim at goal and fire
 
-  chassis.set_turn_pid(135, 75);
+  chassis.set_turn_pid(135, 50);
   chassis.wait_drive();
 
   pros::delay(150);
@@ -544,7 +544,7 @@ void Rave_Skills()
 
   //Go for other barrier discs
 
-  chassis.set_turn_pid(275, 75);
+  chassis.set_turn_pid(275, 50);
   chassis.wait_drive();
 
   chassis.set_drive_pid(-42, 30);
@@ -552,7 +552,7 @@ void Rave_Skills()
 
   //Aim and fire at goal
 
-  chassis.set_turn_pid(190, 75);
+  chassis.set_turn_pid(190, 50);
   chassis.wait_drive();
 
   pros::delay(150);
@@ -561,7 +561,7 @@ void Rave_Skills()
 
   //Go for 2 discs on midline
 
-  chassis.set_turn_pid(135, 75);
+  chassis.set_turn_pid(135, 50);
   chassis.wait_drive();
 
   Intake_Auto(600);
@@ -572,7 +572,7 @@ void Rave_Skills()
   chassis.set_drive_pid(-12, 30);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(45,75);
+  chassis.set_turn_pid(45,50);
   chassis.wait_drive();
 
   chassis.set_drive_pid(-32, 50);
@@ -580,15 +580,24 @@ void Rave_Skills()
 
   //Go to matchloader for single disc
 
-  chassis.set_turn_pid(180, 75);
+  chassis.set_turn_pid(180, 50);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-50, 75);
+  chassis.set_drive_pid(-50, 75, true);
   chassis.wait_drive();
 
   chassis.set_drive_pid(-20, 30);
   chassis.wait_drive();
 
+  //Aim at goal and fire
+
+  chassis.set_swing_pid(ez::LEFT_SWING, 270, 50);
+  chassis.wait_drive();
+
+  pros::delay(100);
+  Catapult_Fire();
+  pros::delay(750); 
+/*
   //Aim at goal and fire
 
   chassis.set_drive_pid(4, 30);
@@ -651,6 +660,8 @@ void Rave_Skills()
 
   chassis.set_turn_pid(45, 75);
   chassis.wait_drive();
+  */
+  
 }
 ///
 // Turn Example
