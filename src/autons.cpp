@@ -120,18 +120,14 @@ void Pid_Drive_Test() {
   **  |_|            |_|   \_____/ \_\   |_|      \_____|   |__|     |_|
   */
 
-void Rave_Auto_Right()
-{
- 
- 
+void Rave_Auto_Right() {
 //Do main setup stuff here
   pros::Task CatapultReload(Catapult_Down);
-
   
   chassis.set_drive_pid(-3, 25);
   chassis.wait_drive();
 
-pros::delay(20);
+  pros::delay(20);
 
   //Turn to triple stack and drive up
   Intake_Toggle();
@@ -145,22 +141,22 @@ pros::delay(20);
 
  pros::delay(20);
 
- 
   //Pick up the triple stack
   Intake_Auto(600);
+ 
   pros::delay(100);
 
  for (int i = 0; i < 1; i++) { 
 
-  chassis.set_drive_pid(8, 50);
-  chassis.wait_drive();
+   chassis.set_drive_pid(8, 50);
+   chassis.wait_drive();
 
-  pros::delay(100);
+   pros::delay(100);
  
-  chassis.set_drive_pid(-8, 50);
-  chassis.wait_drive();
+   chassis.set_drive_pid(-8, 50);
+   chassis.wait_drive();
   
- } 
+   } 
 
  chassis.set_drive_pid(20, 75);
  chassis.wait_drive();
@@ -171,7 +167,7 @@ pros::delay(20);
  chassis.set_turn_pid(90, 75);
  chassis.wait_drive();
 
-  pros::delay(20);
+ pros::delay(20);
 
   chassis.set_drive_pid(-19, 50);
   chassis.wait_drive();
@@ -225,9 +221,9 @@ pros::delay(20);
  chassis.set_drive_pid(-72, 50, true);
   chassis.wait_drive();
 
-pros::delay(20);
+ pros::delay(20);
 
-//fires the line 3 discs
+ //fires the line 3 discs
  chassis.set_drive_pid(9, 50);
   chassis.wait_drive();
 
@@ -237,13 +233,16 @@ pros::delay(20);
  chassis.wait_drive();
 
  pros::delay(150);
+
  Intake_Auto(0);
+ 
  Catapult_Fire();
- pros::delay(3000);
+ 
+ pros::delay(1500);
 
  //goes for barrier discs
 
-Intake_Auto(600);
+  Intake_Auto(600);
  chassis.set_drive_pid(-8, 50);
   chassis.wait_drive();
 
@@ -275,9 +274,42 @@ Intake_Auto(600);
   Catapult_Fire();
   pros::delay(250);
 
-  chassis.set_turn_pid(36000, 100);
-  chassis.wait_drive();
+  //goes toward pre-laod discs
+ chassis.set_turn_pid(-225, 50);
+ chassis.wait_drive();
+
+ chassis.set_drive_pid(-15, 50);
+ chassis.wait_drive();
+
+ chassis.set_turn_pid(-180, 50);
+ chassis.wait_drive();
+
+ chassis.set_drive_pid(-36, 50, true);
+ chassis.wait_drive();
  
+ chassis.set_drive_pid(-12, 20);
+ chassis.wait_drive();
+
+//gets disc on the auton line and fires
+chassis.set_drive_pid(40, 50);
+ chassis.wait_drive();
+
+ chassis.set_turn_pid(-315, 50);
+ chassis.wait_drive();
+
+ chassis.set_drive_pid(-8, 50);
+ chassis.wait_drive();
+
+ chassis.set_drive_pid(8, 50);
+ chassis.wait_drive();
+
+ chassis.set_turn_pid(-147, 50);
+ chassis.wait_drive();
+
+ pros::delay(500);
+ Catapult_Fire();
+ pros::delay(200);
+
 }
 
 void Rave_Auto_Right_Risky()

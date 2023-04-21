@@ -32,9 +32,11 @@ void Intake_Control(void *) {
        Intake_Actuate.set_value(false);
     
        }
-
+  
     pros::delay(20);
+
   }
+
 }
 
 void Roller_Control(void *) {
@@ -43,13 +45,16 @@ void Roller_Control(void *) {
       
       roller.move_velocity(-100);
     
-    }else {
+    } else {
 
      roller.move_velocity(0);
 
     }
+    
     pros::delay(20);
+  
   }
+ 
  } 
 
 void Intake_Auto(int x) {
@@ -69,6 +74,7 @@ void Intake_Auto(int x) {
     intake2.move_velocity(0);
   
   }
+
 }
 
 void Intake_Toggle() {
@@ -79,5 +85,7 @@ void Intake_Toggle() {
 
 
 void Roller_Auto(int x) {
+ 
   roller.move_relative(x, 127);
+
 }
