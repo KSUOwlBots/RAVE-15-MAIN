@@ -100,10 +100,10 @@ void initialize() {
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.add_autons({
       Auton("Rave Skills\n\nAuton for da skills, plz hit like how I hit your mom last night.", Rave_Skills),
-      Auton("Rave Right\n\nIDK when I'm gonna make this s***. But still gonna be batter than Ayush's auton.", Rave_Auto_Right),
-      Auton("Drive PID test\n\nTest code to tune drive pid.", Pid_Drive_Test),
+      Auton("Rave Right\n\nIDK when I'm gonna make this s***. But still gonna be better than Ayush's auton.", Rave_Auto_Right),
+      /*Auton("Drive PID test\n\nTest code to tune drive pid.", Pid_Drive_Test),
       Auton("Turn PID Test\n\nTest code to tune turn pid. ", turn_example),
-      /*Auton("Drive and Turn\n\nSlow down during drive.",
+      Auton("Drive and Turn\n\nSlow down during drive.",
             wait_until_change_speed),
       Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
       Auton("Combine all 3 movements", combining_movements),
@@ -161,10 +161,13 @@ void autonomous() {
                                              // autonomous consistency.
 
 
-  // SETTINGS.hpp > Auton > _AutonFunction
-   //_AutonFunction;
+  // SETTINGS.hpp > Auton > _SkillsAuton
+  
+  _SkillsAuton;
 
-  Rave_Auto_Right();
+  //_MatchAuton;
+
+  //Rave_Auto_Right();
   //Rave_Auto_Right_Risky();
   //Rave_Skills();
 }

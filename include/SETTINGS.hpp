@@ -5,7 +5,8 @@ using namespace pros;
 
 
 // Auton
-#define _AutonFunction Rave_Skills()
+#define _SkillsAuton Rave_Skills()
+#define _MatchAuton  Rave_Auto_Right()
 
 
 // Controls

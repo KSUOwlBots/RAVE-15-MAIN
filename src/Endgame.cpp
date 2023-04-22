@@ -27,13 +27,13 @@ void Endgame_Fire(void *)
     
     skillsTime = 60;
 
-    if(ez::as::auton_selector.current_auton_page == 1) {
+    if(ez::as::auton_selector.current_auton_page == 0) {
     
       driveTime = skillsTime;
     
     }
 
-    if(ez::as::auton_selector.current_auton_page == 3) {
+    if(ez::as::auton_selector.current_auton_page == 1) {
      
       driveTime = matchTime;
       

@@ -553,7 +553,7 @@ void Rave_Skills()
   chassis.set_turn_pid(80, 30);
   chassis.wait_drive();
 
-  pros::delay(150);
+  pros::delay(350);
   Catapult_Fire();
   pros::delay(1500);
 
@@ -562,7 +562,15 @@ void Rave_Skills()
   chassis.set_turn_pid(185, 50);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-44, 30);
+ chassis.set_drive_pid(6, 20);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-42, 30);
+  chassis.wait_drive();
+
+  Intake_Auto(0);
+
+  chassis.set_drive_pid(-8, 30);
   chassis.wait_drive();
 
   //Aim at goal and fire
@@ -570,16 +578,18 @@ void Rave_Skills()
   chassis.set_turn_pid(135, 50);
   chassis.wait_drive();
 
-  pros::delay(150);
+  pros::delay(350);
   Catapult_Fire();
-  pros::delay(1500);
+  pros::delay(1700);
 
   //Go for other barrier discs
+
+  Intake_Auto(600);
 
   chassis.set_turn_pid(275, 50);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-42, 30);
+  chassis.set_drive_pid(-41, 30);
   chassis.wait_drive();
 
   //Aim and fire at goal
@@ -629,7 +639,37 @@ void Rave_Skills()
   pros::delay(100);
   Catapult_Fire();
   pros::delay(750); 
-/*
+
+  chassis.set_swing_pid(ez::RIGHT_SWING, 270, 50);
+  chassis.wait_drive();
+
+ /*
+ /// Match-loading shots
+
+  for (int i = 0; i < 1; i++) {
+
+  chassis.set_drive_pid(-5, 30);
+  chassis.wait_drive();
+
+ pros::delay(5000);
+
+  //Aim at goal and fire
+
+  chassis.set_swing_pid(ez::RIGHT_SWING, 270, 50);
+  chassis.wait_drive();
+
+  pros::delay(100);
+  Catapult_Fire();
+  pros::delay(750);
+  
+  
+  chassis.set_swing_pid(ez::LEFT_SWING, 270, 50);
+  chassis.wait_drive();
+ 
+ } */
+
+
+   /*
   //Aim at goal and fire
 
   chassis.set_drive_pid(4, 30);
