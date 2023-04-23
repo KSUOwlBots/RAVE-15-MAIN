@@ -12,14 +12,14 @@
         "UNICODE",
         "_UNICODE"
       ],
-      "compilerPath": "c:\\Users\\cidae\\AppData\\Roaming\\Code\\User\\globalStorage\\sigbots.pros\\install\\pros-toolchain-windows\\usr\\bin\\arm-none-eabi-g++",
+      "compilerPath": "c:\\Users\\Ayush\\AppData\\Roaming\\Code\\User\\globalStorage\\sigbots.pros\\install\\pros-toolchain-windows\\usr\\bin\\arm-none-eabi-g++",
       "cStandard": "c17",
       "cppStandard": "c++17",
       "intelliSenseMode": "gcc-arm",
-      "compileCommands": "c:\\Users\\cidae\\OneDrive\\Documents\\Rave-15\\RAVE-15-MAIN\\compile_commands.json",
+      "compileCommands": "c:\\Users\\Ayush\\Desktop\\Rave_15\\RAVE-15-MAIN\\compile_commands.json",
       "browse": {
         "path": [
-          "c:\\Users\\cidae\\OneDrive\\Documents\\Rave-15\\RAVE-15-MAIN"
+          "c:\\Users\\Ayush\\Desktop\\Rave_15\\RAVE-15-MAIN"
         ],
         "limitSymbolsToIncludedHeaders": true,
         "databaseFilename": ""
