@@ -38,7 +38,7 @@ using namespace pros;
 #define _IntakeActuatorPort 'H'
 #define _IntakeInitial true
 #define _EndgamePort 'G'
-#define _EndgameInitial true
+#define _EndgameInitial false
 
 // Sensors
 #define _CatapultLimitSwitchPort 'B'
