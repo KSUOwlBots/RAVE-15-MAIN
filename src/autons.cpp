@@ -570,6 +570,8 @@ void Rave_Skills()
 
     //Ram into Matchloader
 
+    Intake_Match_Load(600);
+
     chassis.set_drive_pid(-2, 30);
     chassis.wait_drive();
 
@@ -687,6 +689,9 @@ void Rave_Skills()
 
   for (matchload = 0; matchload < 2; matchload++)
   {
+
+    Intake_Match_Load(600);
+
     chassis.set_drive_pid(2, 30);
     chassis.wait_drive();
 

@@ -77,6 +77,24 @@ void Intake_Auto(int x) {
 
 }
 
+void Intake_Match_Load(int x) {
+
+if((limit_switch.get_value() == 1)) {
+   
+   intake1.move_velocity(x);
+   
+   intake2.move_velocity(-x);
+
+} else {
+
+   intake1.move_velocity(0);
+   
+   intake2.move_velocity(0);
+
+}
+
+}
+
 void Intake_Toggle() {
        
   Intake_Actuate.set_value(false);
