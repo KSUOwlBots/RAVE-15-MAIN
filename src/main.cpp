@@ -161,6 +161,8 @@ void autonomous() {
                                              // autonomous consistency.
 
 
+ //ez::as::auton_selector.call_selected_auton(); // Calls selected auton from autonomous selector.
+
   // SETTINGS.hpp > Auton > _SkillsAuton
   
   _SkillsAuton;

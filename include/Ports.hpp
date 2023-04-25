@@ -13,3 +13,4 @@ extern pros::ADIDigitalOut Intake_Actuate;
 extern pros::ADIDigitalIn limit_switch;
 extern pros::ADIDigitalOut Holder_Angle;
 extern pros::ADIDigitalOut Endgame;
+extern pros::ADIDigitalOut BoosterShot;

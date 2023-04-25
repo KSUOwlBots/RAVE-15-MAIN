@@ -85,3 +85,6 @@ void Catapult_Fire(void) {
   firing = true;
 }
 
+void BoostOff() {
+  BoosterShot.set_value(true);
+}

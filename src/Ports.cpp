@@ -14,4 +14,5 @@ pros::Motor roller(_RollerPort, _RollerGearset);
 pros::ADIDigitalOut Intake_Actuate(_IntakeActuatorPort, _IntakeInitial);
 pros::ADIDigitalIn limit_switch(_CatapultLimitSwitchPort);
 pros::ADIDigitalOut Endgame(_EndgamePort, _EndgameInitial);
+pros::ADIDigitalOut BoosterShot(_CataBoosterPort, _CataBoosterInitial);
 

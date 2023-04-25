@@ -75,6 +75,7 @@ void Endgame_Fire(void *)
     }
 
     pros::delay(20);
+  
   }
 
     /*if (master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) && master.get_digital(pros::E_CONTROLLER_DIGITAL_A))

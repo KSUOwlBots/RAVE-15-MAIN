@@ -5,8 +5,8 @@ using namespace pros;
 
 
 // Auton
-#define _SkillsAuton Rave_Skills()
-#define _MatchAuton  Rave_Auto_Right()
+#define _SkillsAuton Rave_Skills();
+#define _MatchAuton  Rave_Auto_Right();
 
 
 // Controls
@@ -39,6 +39,8 @@ using namespace pros;
 #define _IntakeInitial true
 #define _EndgamePort 'G'
 #define _EndgameInitial false
+#define _CataBoosterPort 'F'
+#define _CataBoosterInitial false
 
 // Sensors
 #define _CatapultLimitSwitchPort 'B'
