@@ -6,7 +6,8 @@
         "${workspaceFolder}/**",
         "c:\\Users\\Ayush\\Desktop\\Rave_15\\RAVE-15-MAIN\\include",
         "c:\\Users\\cidae\\OneDrive\\Documents\\Rave-15\\RAVE-15-MAIN\\include",
-        "c:\\Users\\mitch\\OneDrive\\Desktop\\Rave-15\\RAVE-15-MAIN\\include"
+        "c:\\Users\\mitch\\OneDrive\\Desktop\\Rave-15\\RAVE-15-MAIN\\include",
+        "c:\\Users\\mitch\\OneDrive\\Desktop\\VEX Spin Up Code\\RAVE-15-MAIN\\include"
       ],
       "defines": [
         "_DEBUG",
@@ -17,10 +18,10 @@
       "cStandard": "c17",
       "cppStandard": "c++17",
       "intelliSenseMode": "gcc-arm",
-      "compileCommands": "c:\\Users\\mitch\\OneDrive\\Desktop\\Rave-15\\RAVE-15-MAIN\\compile_commands.json",
+      "compileCommands": "c:\\Users\\mitch\\OneDrive\\Desktop\\VEX Spin Up Code\\RAVE-15-MAIN\\compile_commands.json",
       "browse": {
         "path": [
-          "c:\\Users\\mitch\\OneDrive\\Desktop\\Rave-15\\RAVE-15-MAIN"
+          "c:\\Users\\mitch\\OneDrive\\Desktop\\VEX Spin Up Code\\RAVE-15-MAIN"
         ],
         "limitSymbolsToIncludedHeaders": true,
         "databaseFilename": ""

@@ -10,7 +10,6 @@
 #include "pros/rtos.h"
 #include "pros/rtos.hpp"
 
-
 /////
 // For instalattion, upgrading, documentations and tutorials, check out website!
 // https://ez-robotics.github.io/EZ-Template/
@@ -25,7 +24,7 @@ Drive chassis(
     // Right Chassis Ports (negative port will reverse it!)
     //   the first port is the sensored port (when trackers are not used!)
     ,
-    {-16,-15,14,-13}
+    {-16, -15, 14, -13}
 
     // IMU Port
     ,
@@ -71,7 +70,8 @@ Drive chassis(
  * All other competition modes are blocked by initialize; it is recommended
  * to keep execution time for this mode under a few seconds.
  */
-void initialize() {
+void initialize()
+{
   // Print our branding over your terminal :D
   ez::print_ez_template();
 
@@ -80,13 +80,13 @@ void initialize() {
 
   // Configure your chassis controls
   chassis.toggle_modify_curve_with_controller(
-      false); // Enables modifying the controller curve with buttons on the
-             // joysticks
+      false);                    // Enables modifying the controller curve with buttons on the
+                                 // joysticks
   chassis.set_active_brake(0.0); // Sets the active brake kP. We recommend 0.1.
   chassis.set_curve_default(
-      .5, .5); // Defaults for curve. If using tank, only the first parameter is
-             // used. (Comment this line out if you have an SD card!)
-  default_constants(); // Set the drive to your own constants from autons.cpp!
+      .5, .5);               // Defaults for curve. If using tank, only the first parameter is
+                             // used. (Comment this line out if you have an SD card!)
+  default_constants();       // Set the drive to your own constants from autons.cpp!
   exit_condition_defaults(); // Set the exit conditions to your own constants
                              // from autons.cpp!
 
@@ -116,7 +116,6 @@ void initialize() {
   chassis.initialize();
   ez::as::initialize();
 
-  
   pros::Task Catapult(Catapult_Down); // Cata Reloads Constantly
 }
 
@@ -125,7 +124,8 @@ void initialize() {
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
  */
-void disabled() {
+void disabled()
+{
   // . . .
 }
 
@@ -138,7 +138,8 @@ void disabled() {
  * This task will exit when the robot is enabled and autonomous or opcontrol
  * starts.
  */
-void competition_initialize() {
+void competition_initialize()
+{
   // . . .
 }
 
@@ -153,25 +154,25 @@ void competition_initialize() {
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {
+void autonomous()
+{
   chassis.reset_pid_targets();               // Resets PID targets to 0
   chassis.reset_gyro();                      // Reset gyro position to 0
   chassis.reset_drive_sensor();              // Reset drive sensors to 0
   chassis.set_drive_brake(MOTOR_BRAKE_HOLD); // Set motors to hold.  This helps
                                              // autonomous consistency.
 
-
- //ez::as::auton_selector.call_selected_auton(); // Calls selected auton from autonomous selector.
+  // ez::as::auton_selector.call_selected_auton(); // Calls selected auton from autonomous selector.
 
   // SETTINGS.hpp > Auton > _SkillsAuton
-  
+
   // _SkillsAuton;
 
   _MatchAuton;
 
-  //Rave_Auto_Right();
-  //Rave_Auto_Right_Risky();
-  //Rave_Skills();
+  // Rave_Auto_Right();
+  // Rave_Auto_Right_Risky();
+  // Rave_Skills();
 }
 
 /**
@@ -188,17 +189,18 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 
-void opcontrol() {
+void opcontrol()
+{
 
   chassis.set_drive_brake(MOTOR_BRAKE_COAST);
+  BoosterShot.set_value(true);
 
   pros::Task Intakes(Intake_Control);
   pros::Task Roller(Roller_Control);
   // pros::Task Catapult(BoostOff);
   // pros::Task Catapult(Catapult_Control);
 
-  pros::Task Endgame(Endgame_Fire); 
-  \
+  pros::Task Endgame(Endgame_Fire);
 
   while (true)
   {
@@ -207,7 +209,8 @@ void opcontrol() {
     _DriveType;
 
     // SETTINGS.hpp > Controls > _CatapultFire
-    if (master.get_digital_new_press(_CatapultFire)) {
+    if (master.get_digital_new_press(_CatapultFire))
+    {
       Catapult_Fire();
     }
 
