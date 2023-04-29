@@ -85,6 +85,16 @@ void Catapult_Fire(void) {
   firing = true;
 }
 
-void BoostOff() {
-  BoosterShot.set_value(true);
+void BoostOff(void *) {
+
+ while(true) {
+
+  if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+
+    BoosterShot.set_value(true);
+
+  }
+
+ }
+  
 }

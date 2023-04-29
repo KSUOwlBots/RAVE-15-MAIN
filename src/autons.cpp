@@ -107,6 +107,46 @@ void Pid_Drive_Test() {
   pros::delay(500);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /*   ____        ____                   _                  _
   **  | |\ \      / /| |                 | |                | |
   **  | | \ \    / / | |       __    ____| |____            | |  
@@ -120,7 +160,8 @@ void Pid_Drive_Test() {
 void Rave_Auto_Right() {
 //Do main setup stuff here
   pros::Task CatapultReload(Catapult_Down);
-  
+
+  pros::delay(250);
   chassis.set_drive_pid(-3, 25);
   chassis.wait_drive();
 
@@ -177,12 +218,11 @@ void Rave_Auto_Right() {
  
 
  //spins roller
- chassis.set_drive_pid(-10, 50);
+ chassis.set_drive_pid(-10, 30);
   chassis.wait_drive();
 
  Roller_Auto(450);
-
- 
+ pros::delay(500);
 
  chassis.set_drive_pid(3, 50);
   chassis.wait_drive();
@@ -195,8 +235,12 @@ void Rave_Auto_Right() {
  
 
   //bosted shot 
-  chassis.set_drive_pid(10,90);
+  chassis.set_drive_pid(10,30);
   pros::delay(100);
+  
+  Intake_Auto(-600);
+  pros::delay(2000);
+  Intake_Auto(0);
 
   Catapult_Fire();
 
@@ -232,6 +276,10 @@ void Rave_Auto_Right() {
  pros::delay(150);
 
  Intake_Auto(0);
+  
+  Intake_Auto(-600);
+  pros::delay(2000);
+  Intake_Auto(0);
  
  Catapult_Fire();
  
@@ -240,7 +288,7 @@ void Rave_Auto_Right() {
  //goes for barrier discs
 
   Intake_Auto(600);
- chassis.set_drive_pid(-8, 50);
+ chassis.set_drive_pid(-5, 50);
   chassis.wait_drive();
 
 
@@ -268,8 +316,14 @@ void Rave_Auto_Right() {
  chassis.wait_drive();
 
   pros::delay(250);
+  
+  Intake_Auto(-600);
+  pros::delay(2000);
+  Intake_Auto(0);
   Catapult_Fire();
   pros::delay(250);
+
+  /*
 
   //goes toward pre-laod discs
 
@@ -312,6 +366,8 @@ chassis.set_drive_pid(40, 50);
  pros::delay(200);
 
  void BoostOff();
+
+ */
 
 }
 
@@ -492,6 +548,41 @@ void Rave_Auto_Right_Risky()
 
   Roller_Auto(450);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*      _____    _        _    _    _ 
 **     / ____|  | |      (_)  | |  | | 
 **    | (___    | | __    _   | |  | |   ___
@@ -553,26 +644,27 @@ void Rave_Skills()
   chassis.set_drive_pid(56, 75, true);
   chassis.wait_drive();
 
-  Intake_Auto(0);
-  Intake_Toggle();
-
   //Fire at goal and behind matchloader loop
 
   int matchload;
 
   for (matchload = 0; matchload < 2; matchload++)
   {
+
+    Intake_Auto(600);
     
     //Fire Cata
     pros::delay(250);
     Catapult_Fire();
     pros::delay(250);
 
+    Intake_Toggle();
+
     //Ram into Matchloader
 
     Intake_Match_Load(600);
 
-    chassis.set_drive_pid(-2, 30);
+    chassis.set_drive_pid(-4, 30);
     chassis.wait_drive();
 
     chassis.set_swing_pid(ez::LEFT_SWING, 0, 50);
@@ -591,12 +683,14 @@ void Rave_Skills()
     chassis.set_swing_pid(LEFT_SWING, 87, 50);
     chassis.wait_drive();
 
-    chassis.set_drive_pid(2, 30);
+    chassis.set_drive_pid(3, 30);
     chassis.wait_drive();
   }
 
   //Reset metchload counter
   matchload = 0;
+
+  Intake_Auto(600);
 
   //Fire last matchload shot
   pros::delay(250);
@@ -607,8 +701,6 @@ void Rave_Skills()
 
   chassis.set_swing_pid(LEFT_SWING, 181, 50);
   chassis.wait_drive();
-
-  Intake_Auto(600);
 
   chassis.set_drive_pid(-38, 30, true);
   chassis.wait_drive();

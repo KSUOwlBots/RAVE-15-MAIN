@@ -43,4 +43,4 @@ using namespace pros;
 #define _CataBoosterInitial false
 
 // Sensors
-#define _CatapultLimitSwitchPort 'B'
+#define _CatapultLimitSwitchPort 'B'  

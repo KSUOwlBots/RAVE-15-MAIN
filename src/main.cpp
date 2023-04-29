@@ -165,9 +165,9 @@ void autonomous() {
 
   // SETTINGS.hpp > Auton > _SkillsAuton
   
-  _SkillsAuton;
+  // _SkillsAuton;
 
-  //_MatchAuton;
+  _MatchAuton;
 
   //Rave_Auto_Right();
   //Rave_Auto_Right_Risky();
@@ -194,10 +194,11 @@ void opcontrol() {
 
   pros::Task Intakes(Intake_Control);
   pros::Task Roller(Roller_Control);
+  pros::Task Catapult(BoostOff);
   // pros::Task Catapult(Catapult_Control);
 
   pros::Task Endgame(Endgame_Fire); 
-  
+  \
 
   while (true)
   {
