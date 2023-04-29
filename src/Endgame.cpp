@@ -45,6 +45,13 @@ void Endgame_Fire(void *)
 
   while (true)
   {
+    //put cuz we need ram
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+
+    BoosterShot.set_value(true);
+
+  }
+/////////////////////////
     //fail safe code 
     if((pros::millis() - startTime >= deployTime) || (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT) && master.get_digital(pros::E_CONTROLLER_DIGITAL_Y))) {
     

@@ -194,7 +194,7 @@ void opcontrol() {
 
   pros::Task Intakes(Intake_Control);
   pros::Task Roller(Roller_Control);
-  pros::Task Catapult(BoostOff);
+  // pros::Task Catapult(BoostOff);
   // pros::Task Catapult(Catapult_Control);
 
   pros::Task Endgame(Endgame_Fire); 

@@ -368,6 +368,7 @@ chassis.set_drive_pid(40, 50);
  void BoostOff();
 
  */
+ BoosterShot.set_value(true);
 
 }
 
